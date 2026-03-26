@@ -4,38 +4,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Padres | Colegio Roger Bacon"
-  description="Información para madres y padres de familia: comunicación institucional, requisitos y seguimiento académico."
+  description="Información institucional para padres de familia del Colegio Roger Bacon."
   path="/padres"
 >
-  <section class="page-hero">
-    <div class="container">
-      <h1>Padres de familia</h1>
-      <p>Información relevante para acompañar la trayectoria académica y formativa de sus hijos.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split">
-      <article>
-        <h2 class="section-title">Vinculación con familias</h2>
-        <p class="section-intro">
-          Fomentamos la participación activa de madres y padres para consolidar un entorno educativo
-          basado en la comunicación, los valores y el seguimiento cercano del desempeño estudiantil.
-        </p>
-        <ul class="list-clean">
-          <li>Canales de contacto directo con el área administrativa y académica.</li>
-          <li>Información clara de procesos escolares y documentación.</li>
-          <li>Acompañamiento en procesos de admisión y continuidad académica.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Documentación y trámites</h2>
-        <p>
-          Esta base queda preparada para integrar en una segunda fase los formatos descargables de admisión,
-          cédulas de registro y lineamientos administrativos para padres de familia.
-        </p>
-      </article>
-    </div>
+  <section class="blank-page" aria-label="Contenido padres">
+    <div class="blank-page__band"></div>
+    <div class="blank-page__space"></div>
   </section>
 </BaseLayout>
+
+<style>
+  .blank-page__band {
+    height: 56px;
+    background: #f5f5f5;
+    border-top: 1px solid #eceff2;
+    border-bottom: 1px solid #eceff2;
+  }
+
+  .blank-page__space {
+    min-height: 340px;
+    background: #ffffff;
+  }
+</style>

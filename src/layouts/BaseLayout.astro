@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 
 const { title, description, path = '/' } = Astro.props;
 const canonical = new URL(path, Astro.site ?? 'https://colegio-rogerbacon.edu.mx').toString();
-const ogImage = new URL('/favicon.svg', Astro.site ?? 'https://colegio-rogerbacon.edu.mx').toString();
+const ogImage = new URL('/images/original/logo.png', Astro.site ?? 'https://colegio-rogerbacon.edu.mx').toString();
 ---
 
 <!doctype html>
@@ -19,10 +20,17 @@ const ogImage = new URL('/favicon.svg', Astro.site ?? 'https://colegio-rogerbaco
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/original/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="canonical" href={canonical} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#004775" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -35,5 +43,6 @@ const ogImage = new URL('/favicon.svg', Astro.site ?? 'https://colegio-rogerbaco
       <slot />
     </main>
     <Footer />
+    <WhatsAppFloat />
   </body>
 </html>

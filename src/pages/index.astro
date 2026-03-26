@@ -1,83 +1,488 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroAdmission from '../components/HeroAdmission.astro';
-import FeatureCards from '../components/FeatureCards.astro';
-import EducationalModel from '../components/EducationalModel.astro';
-import InstitutionalPhilosophy from '../components/InstitutionalPhilosophy.astro';
-import CTASection from '../components/CTASection.astro';
+import Icon from '../components/Icon.astro';
+
+const featureItems = [
+  { icon: 'shield', title: 'ACADÉMICOS', text: 'Certificados por Google y Microsoft' },
+  { icon: 'user', title: 'CATEDRÁTICOS', text: 'Con estudios de posgrado' },
+  { icon: 'plane', title: 'PROGRAMAS', text: 'Ejemplares de intercambio estudiantil' },
+  { icon: 'court', title: 'GARANTIZAMOS', text: 'Una sólida formación para la universidad' }
+] as const;
+
+const modelCards = [
+  { title: 'INVESTIGACIÓN', image: '/images/original/model-investigacion.jpg', overlay: 'linear-gradient(30deg, rgba(51,39,0,.82), rgba(217,149,102,.76))' },
+  { title: 'LIDERAZGO', image: '/images/original/model-liderazgo.jpg', overlay: 'linear-gradient(30deg, rgba(51,39,0,.82), rgba(255,200,13,.74))' },
+  { title: 'USO DE LA TECNOLOGÍA', image: '/images/original/model-tecnologia.jpg', overlay: 'linear-gradient(30deg, rgba(0,19,38,.84), rgba(102,170,217,.76))' }
+] as const;
+
+const philosophy = [
+  {
+    title: 'PROPÓSITO',
+    text: 'Formar estudiantes de excelencia, capaces de insertarse en el ámbito público y privado de la sociedad, que adopten la conciencia de ser agentes de cambio para el entorno actual, dotándolos de herramientas tecnológicas y programas educativos de vanguardia, propiciando la vinculación social, el respeto y compromiso con el medio ambiente.'
+  },
+  {
+    title: 'MISIÓN',
+    text: 'Formar líderes sociales con valores universales, pensamiento crítico, autónomo y reflexivo que les permita ejercer su libertad responsable en beneficio propio y de los demás.'
+  },
+  {
+    title: 'VISIÓN',
+    text: 'Consolidarnos como una institución educativa líder y vanguardista en la preparación de estudiantes de excelencia que sean agentes de cambio en su entorno social, mediante el conocimiento, capacitación y manejo de tecnología de punta que favorezca la motivación, el desarrollo de habilidades científicas y de investigación que sean aplicadas en el logro del bien común.'
+  }
+] as const;
+
+const valueColumns = [
+  [
+    'La búsqueda constante de la verdad mediante el pensamiento crítico y reflexivo.',
+    'La apropiación del pensamiento socialmente responsable.',
+    'La divulgación de la cultura para la paz y sostenibilidad del mundo.',
+    'Promovemos un sistema educativo flexible y encaminado a la excelencia que permita que nuestra comunidad estudiantil sea influyente en su entorno y promueva el emprendimiento.'
+  ],
+  [
+    'Fomentamos el respeto y tolerancia a la diversidad cultural y la formación de ciudadanos capaces de promover la deliberación pública para el desarrollo colectivo.',
+    'Creemos en la inclusión social, el amor a la Patria, la justicia, la fraternidad, la integridad de la familia y la libertad.'
+  ]
+] as const;
 ---
 
 <BaseLayout
-  title="Colegio Roger Bacon | Proceso de Admisión"
-  description="Educación de calidad a tu alcance. Conoce el proceso de admisión, modelo educativo y filosofía institucional del Colegio Roger Bacon."
+  title="Colegio Roger Bacon | Bachillerato General"
+  description="Educación de calidad a tu alcance. Conoce el modelo educativo, la filosofía institucional y el proceso de admisión del Colegio Roger Bacon."
   path="/"
 >
-  <HeroAdmission />
-
-  <FeatureCards />
-
-  <section class="section" aria-labelledby="frase-institucional-title">
-    <div class="container quote-composition">
-      <figure class="image-panel">
-        <img src="/images/institucional-1.jpg" alt="Estudiantes en entorno académico" loading="lazy" decoding="async" />
-      </figure>
-
-      <div>
-        <h2 id="frase-institucional-title" class="section-title">Compromiso institucional</h2>
-        <blockquote class="quote">
-          “Valoramos la educación de calidad, con principios y valores que le permiten al joven,
-          incidir en su entorno de manera proactiva y con un liderazgo definido”.
-        </blockquote>
+  <section class="home-hero">
+    <div class="home-hero__media"></div>
+    <div class="home-hero__veil"></div>
+    <div class="container home-hero__content">
+      <div class="home-hero__copy">
+        <h1>PROCESO DE<br />ADMISIÓN</h1>
+        <p>Educación de Calidad a tu Alcance</p>
+        <a href="/admision" class="home-hero__cta">INSCRÍBETE</a>
       </div>
-
-      <figure class="image-panel image-panel-secondary">
-        <img src="/images/institucional-2.jpg" alt="Formación integral y liderazgo estudiantil" loading="lazy" decoding="async" />
-      </figure>
     </div>
   </section>
 
-  <EducationalModel />
+  <section class="feature-strip" aria-label="Diferenciadores">
+    <div class="container feature-strip__grid">
+      {featureItems.map((item) => (
+        <article class="feature-strip__item">
+          <Icon name={item.icon} class="feature-strip__icon" />
+          <h2>{item.title}</h2>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
 
-  <InstitutionalPhilosophy />
+  <section class="quote-band">
+    <div class="container">
+      <blockquote>
+        "Valoramos la educación de calidad, con principios y valores que le permiten al joven,
+        incidir en su entorno de manera proactiva y con un liderazgo definido".
+      </blockquote>
+    </div>
+  </section>
 
-  <CTASection />
+  <section class="section-shell home-section">
+    <div class="container home-section__container">
+      <header class="home-heading">
+        <h2>MODELO EDUCATIVO</h2>
+        <p>Nuestro modelo educativo está basado en tres pilares necesarios de la educación de calidad</p>
+      </header>
+
+      <div class="model-grid">
+        {modelCards.map((item) => (
+          <article class="model-card" style={`--model-overlay:${item.overlay}; background-image:url('${item.image}')`}>
+            <span>{item.title}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell philosophy-section">
+    <div class="container home-section__container">
+      <header class="home-heading">
+        <h2>FILOSOFÍA INSTITUCIONAL</h2>
+      </header>
+
+      <div class="philosophy-grid">
+        {philosophy.map((item) => (
+          <article class="philosophy-card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell values-section">
+    <div class="container home-section__container">
+      <header class="home-heading">
+        <h2>NUESTROS VALORES</h2>
+        <p>Los valores que compartimos con orgullo y satisfacción en la comunidad académica del Colegio Roger Bacon son</p>
+      </header>
+
+      <div class="values-grid">
+        {valueColumns.map((column) => (
+          <ul class="value-list">
+            {column.map((item) => <li>{item}</li>)}
+          </ul>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .quote-composition {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr 0.8fr;
-    gap: 1rem;
+  .section-shell {
+    padding-block: var(--section-space);
+  }
+
+  .home-hero {
+    position: relative;
+    min-height: clamp(360px, 42vw, 540px);
+    color: #ffffff;
+    background: var(--color-blue-deeper);
+  }
+
+  .home-hero__media,
+  .home-hero__veil {
+    position: absolute;
+    inset: 0;
+  }
+
+  .home-hero__media {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.05)),
+      url('/images/original/home-hero.jpg') center/cover no-repeat;
+    opacity: 0.95;
+  }
+
+  .home-hero__veil {
+    background:
+      linear-gradient(180deg, rgba(6, 27, 44, 0.18), rgba(0, 71, 117, 0.88) 76%, rgba(0, 71, 117, 0.96)),
+      linear-gradient(90deg, rgba(5, 31, 50, 0.7), rgba(5, 31, 50, 0.32));
+  }
+
+  .home-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
     align-items: center;
+    min-height: inherit;
+    padding-block: 3.7rem 4rem;
   }
 
-  .image-panel {
+  .home-hero__copy {
+    padding-left: clamp(1rem, 6vw, 5rem);
+  }
+
+  .home-hero h1 {
     margin: 0;
-    border-radius: var(--radius-lg);
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .home-hero h1::after {
+    content: '';
+    display: block;
+    width: 74px;
+    height: 3px;
+    margin-top: 1rem;
+    background: var(--color-gold);
+  }
+
+  .home-hero p {
+    margin: 0.8rem 0 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .home-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.65rem 1rem;
+    background: var(--color-gold);
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+  }
+
+  .home-hero__cta:hover,
+  .home-hero__cta:focus-visible {
+    background: var(--color-blue-muted);
+  }
+
+  .feature-strip {
+    background: var(--color-blue-deep);
+  }
+
+  .feature-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .feature-strip__item {
+    padding: 2.1rem 1.4rem 2.3rem;
+    text-align: center;
+    color: var(--color-blue-muted);
+  }
+
+  .feature-strip__item + .feature-strip__item {
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .feature-strip__icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 1rem;
+    color: #ffffff;
+  }
+
+  .feature-strip__item h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .feature-strip__item p {
+    margin: 0.35rem auto 0;
+    max-width: 13ch;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .quote-band {
+    padding: 2rem 0 2.4rem;
+    background: #ffffff;
+  }
+
+  .quote-band blockquote {
+    margin: 0 auto;
+    max-width: 980px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.05rem, 2.3vw, 1.52rem);
+    font-weight: 900;
+    line-height: 1.45;
+    color: #32373e;
+  }
+
+  .home-section__container {
+    max-width: 1100px;
+  }
+
+  .home-heading {
+    margin-bottom: 1.8rem;
+    text-align: center;
+  }
+
+  .home-heading h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.9rem, 3.1vw, 2.7rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  .home-heading h2::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 1px;
+    margin: 1rem auto 0;
+    background: #cfd4da;
+  }
+
+  .home-heading p {
+    margin: 0.65rem auto 0;
+    max-width: 740px;
+    color: #7a7f86;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .model-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .model-card {
+    position: relative;
+    min-height: 300px;
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
-    aspect-ratio: 4 / 5;
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
   }
 
-  .image-panel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .model-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--model-overlay);
   }
 
-  .image-panel-secondary {
-    aspect-ratio: 4 / 4.6;
+  .model-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.56) 58%, rgba(255, 255, 255, 0.34));
   }
 
-  @media (max-width: 980px) {
-    .quote-composition {
+  .model-card span {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    padding: 1.3rem;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  .philosophy-section {
+    padding-top: 0;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+
+  .philosophy-card h3 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .philosophy-card h3::after {
+    content: '';
+    display: block;
+    width: 74px;
+    height: 3px;
+    margin-top: 0.8rem;
+    background: var(--color-gold);
+  }
+
+  .philosophy-card p {
+    margin: 1rem 0 0;
+    color: #515760;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .values-section {
+    padding-top: 0.8rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem 2.6rem;
+  }
+
+  .value-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .value-list li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: #3d444d;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .value-list li + li {
+    margin-top: 0.7rem;
+  }
+
+  .value-list li::before {
+    content: '✓';
+    position: absolute;
+    top: 0.02rem;
+    left: 0;
+    color: var(--color-blue-deep);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .feature-strip__grid,
+    .model-grid,
+    .philosophy-grid,
+    .values-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-strip__item:nth-child(3) {
+      border-left: 0;
+    }
+
+    .feature-strip__item:nth-child(n + 3) {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .home-hero__content {
+      padding-block: 2.8rem 3.2rem;
+    }
+
+    .home-hero__copy {
+      padding-left: 0;
+    }
+
+    .feature-strip__grid,
+    .model-grid,
+    .philosophy-grid,
+    .values-grid {
       grid-template-columns: 1fr;
     }
 
-    .image-panel,
-    .image-panel-secondary {
-      aspect-ratio: 16 / 8;
+    .feature-strip__item + .feature-strip__item {
+      border-left: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .quote-band blockquote {
+      font-size: 1rem;
+    }
+
+    .home-heading p {
+      font-size: 0.71rem;
     }
   }
 </style>

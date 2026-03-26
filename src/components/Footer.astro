@@ -1,68 +1,48 @@
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div>
-      <h2>Colegio Roger Bacon</h2>
-      <p>Bachillerato General con enfoque académico, tecnológico y formativo.</p>
-    </div>
+---
+import Icon from './Icon.astro';
+---
 
-    <div class="footer-contact">
-      <p><strong>Dirección:</strong> Av. 16 Ote. #233, Humboldt Norte C.P. 72570, Puebla, Pue. México</p>
-      <p><strong>Teléfono:</strong> <a href="tel:+522226043466">(+052) 2226 04 34 66</a></p>
-      <p><strong>Correo:</strong> <a href="mailto:contacto@colegio-rogerbacon.edu.mx">contacto@colegio-rogerbacon.edu.mx</a></p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/RogerBaconPuebla" rel="noopener noreferrer" target="_blank">Roger Bacon Puebla</a></p>
-      <p><strong>Redes:</strong> Próximamente Instagram y YouTube institucional.</p>
+<footer class="site-footer">
+  <div class="footer-topbar">
+    <div class="container footer-topbar__inner">
+      <a href="/" class="footer-brand" aria-label="Inicio Colegio Roger Bacon">
+        <img src="/images/original/logo.png" alt="" width="46" height="46" />
+        <span>
+          <strong>Colegio Roger Bacon</strong>
+          <small>Bachillerato General</small>
+        </span>
+      </a>
+
+      <div class="footer-socials" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/RogerBaconPuebla" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <Icon name="facebook" class="social-icon" />
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <Icon name="youtube" class="social-icon" />
+        </a>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <small>© {new Date().getFullYear()} Colegio Roger Bacon. Todos los derechos reservados.</small>
+
+  <div class="footer-band">
+    <div class="container footer-grid">
+      <article class="footer-item">
+        <Icon name="pin" class="footer-item__icon" />
+        <h2>DIRECCIÓN</h2>
+        <p>Av. 16 Ote. #233, Humboldt Norte C.P. 72570 Puebla, Pue. México</p>
+      </article>
+
+      <article class="footer-item">
+        <Icon name="phone" class="footer-item__icon" />
+        <h2>TELÉFONO</h2>
+        <p><a href="tel:+522226043466">(+052) 2226 04 34 66</a></p>
+      </article>
+
+      <article class="footer-item">
+        <Icon name="mail" class="footer-item__icon" />
+        <h2>CORREO</h2>
+        <p><a href="mailto:contacto@colegio-rogerbacon.edu.mx">contacto@colegio-rogerbacon.edu.mx</a></p>
+      </article>
     </div>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    margin-top: var(--space-section);
-    background: var(--color-navy-950);
-    color: #e2ebf8;
-  }
-
-  .footer-top {
-    padding-block: 3rem;
-    display: grid;
-    gap: 1.6rem;
-    grid-template-columns: 1fr 1.2fr;
-  }
-
-  .footer-top h2 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-
-  .footer-top p {
-    margin: 0.75rem 0 0;
-    color: #c8d6eb;
-  }
-
-  .footer-contact p {
-    margin: 0.45rem 0;
-  }
-
-  .footer-contact a {
-    color: #f2f7ff;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(207, 223, 247, 0.2);
-    padding-block: 1rem;
-    color: #bfd0ea;
-  }
-
-  @media (max-width: 780px) {
-    .footer-top {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

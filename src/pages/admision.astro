@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTASection from '../components/CTASection.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <BaseLayout
@@ -8,39 +8,203 @@ import CTASection from '../components/CTASection.astro';
   description="Proceso de admisión, beneficios académicos y requisitos para ingresar al Colegio Roger Bacon."
   path="/admision"
 >
-  <section class="page-hero">
+  <PageHero
+    title="Proceso de Admisión"
+    subtitle="Formamos líderes con valores universales y pensamiento crítico, autónomo y reflexivo."
+    image="/images/original/admission-hero.jpg"
+  />
+
+  <section class="admission-shell">
     <div class="container">
-      <h1>Proceso de Admisión</h1>
-      <p>Formamos líderes con valores universales y pensamiento crítico, autónomo y reflexivo.</p>
+      <div class="admission-card">
+        <article class="admission-main">
+          <div class="admission-title">
+            <h2>¿Por qué estudiar en el <br />Colegio Roger Bacon?</h2>
+          </div>
+
+          <ul class="admission-list">
+            <li>Nuestra planta académica está certificada por Google y Microsoft. El 80% de nuestros catedráticos cuenta con estudios de posgrado.</li>
+            <li>Contamos con programas de intercambio estudiantil.</li>
+            <li>Nuestro modelo educativo está basado en tres pilares: la investigación, el uso de la tecnología y el liderazgo.</li>
+            <li>Garantizamos una sólida formación académica en la preparación para el ingreso a la universidad.</li>
+            <li>Valoramos la educación de calidad, con principios y valores que le permitan al joven, incidir en su entorno de manera proactiva y con un liderazgo definido.</li>
+          </ul>
+
+          <figure class="admission-main__image">
+            <img src="/images/original/admission-why.jpg" alt="Razones para estudiar en Roger Bacon" loading="lazy" decoding="async" />
+          </figure>
+        </article>
+
+        <aside class="admission-side">
+          <div class="admission-title admission-title--light">
+            <h2>Requisitos de Admisión</h2>
+          </div>
+
+          <div class="requirements-copy">
+            <p>
+              1. Certificado de Secundaria.**<br />
+              2. Carta de buena conducta emitida por la autoridad de tu secundaria.**<br />
+              3. Acta de nacimiento.**<br />
+              4. CURP en formato nuevo.**<br />
+              5. Comprobante de domicilio.*<br />
+              6. NIA (Credencial de Control Escolar).*<br />
+              7. Certificado Médico expedido por una institución pública.<br />
+              8. 10 fotografías tamaño infantil, fondo blanco, ropa clara, cabello recogido, sin aretes ni fleco, papel autoadherible mate.<br />
+              9. Cédula de registro debidamente firmada.
+            </p>
+
+            <p><strong>PARA SEGUNDO O TERCER AÑO DE BACHILLERATO, ADEMÁS DEBERÁ ENTREGAR:</strong></p>
+
+            <p>
+              10. Kardex parcial del bachillerato.*<br />
+              11. Certificado parcial del bachillerato.**
+            </p>
+
+            <p>**Original y dos copias de buena calidad.<br />* Una copia.</p>
+          </div>
+
+          <a
+            class="admission-banner"
+            href="https://118km.com/rogerbacon/wp-content/uploads/2021/05/Informacion-para-Aspirantes.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/original/admission-banner.png" alt="Descargar información para aspirantes" loading="lazy" decoding="async" />
+          </a>
+
+          <figure class="admission-side__image">
+            <img src="/images/original/admission-info.jpg" alt="Información para aspirantes Roger Bacon" loading="lazy" decoding="async" />
+          </figure>
+        </aside>
+      </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container split">
-      <article>
-        <h2 class="section-title">¿Por qué estudiar en el Colegio Roger Bacon?</h2>
-        <ul class="list-clean">
-          <li>Nuestra planta académica está certificada por Google y Microsoft.</li>
-          <li>El 80% de nuestros catedráticos cuenta con estudios de posgrado.</li>
-          <li>Contamos con programas de intercambio estudiantil.</li>
-          <li>Modelo educativo basado en investigación, liderazgo y uso de la tecnología.</li>
-          <li>Sólida preparación para el ingreso a la universidad.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Requisitos de admisión</h2>
-        <ol class="list-clean">
-          <li>Certificado de secundaria.</li>
-          <li>Carta de buena conducta emitida por la autoridad de tu secundaria.</li>
-          <li>Acta de nacimiento y CURP en formato nuevo.</li>
-          <li>Comprobante de domicilio, NIA y certificado médico de institución pública.</li>
-          <li>10 fotografías tamaño infantil y cédula de registro firmada.</li>
-          <li>Para segundo o tercer año: kardex y certificado parcial de bachillerato.</li>
-        </ol>
-      </article>
-    </div>
-  </section>
-
-  <CTASection />
 </BaseLayout>
+
+<style>
+  .admission-shell {
+    padding-bottom: 2.4rem;
+    background: linear-gradient(180deg, #fbfbfb, #ffffff 65%);
+  }
+
+  .admission-card {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+    margin-top: -58px;
+    background: #ffffff;
+    box-shadow: 0 28px 44px rgba(12, 20, 27, 0.08);
+  }
+
+  .admission-main {
+    padding: 2.3rem 2rem 2.5rem;
+  }
+
+  .admission-title h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .admission-title h2::after {
+    content: '';
+    display: block;
+    width: 74px;
+    height: 3px;
+    margin-top: 1rem;
+    background: var(--color-gold);
+  }
+
+  .admission-list {
+    margin: 1.3rem 0 0;
+    padding-left: 1.15rem;
+    color: #4a515a;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .admission-list li + li {
+    margin-top: 0.65rem;
+  }
+
+  .admission-main__image {
+    max-width: 280px;
+    margin: 1.8rem 0 0 auto;
+  }
+
+  .admission-main__image img,
+  .admission-side__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .admission-side {
+    padding: 2.2rem 2rem 2rem;
+    background: var(--color-blue-deep);
+    color: #ffffff;
+  }
+
+  .admission-title--light h2 {
+    color: #ffffff;
+  }
+
+  .admission-title--light h2::after {
+    background: var(--color-blue-muted);
+  }
+
+  .requirements-copy {
+    margin-top: 1rem;
+    font-size: 0.93rem;
+    line-height: 1.72;
+  }
+
+  .requirements-copy p {
+    margin: 0;
+  }
+
+  .requirements-copy p + p {
+    margin-top: 1rem;
+  }
+
+  .admission-banner {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  .admission-banner img {
+    width: min(100%, 320px);
+    height: auto;
+  }
+
+  .admission-side__image {
+    margin: 1.2rem 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .admission-card {
+      grid-template-columns: 1fr;
+      margin-top: -34px;
+    }
+
+    .admission-main__image {
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .admission-main,
+    .admission-side {
+      padding: 1.5rem 1.2rem;
+    }
+
+    .admission-list,
+    .requirements-copy {
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  image: string;
+  center?: boolean;
+  compact?: boolean;
+}
+
+const { title, subtitle, image, center = true, compact = false } = Astro.props;
+---
+
+<section class:list={['page-hero', compact && 'page-hero--compact', center ? 'page-hero--center' : 'page-hero--left']}>
+  <div class="page-hero__media" style={`background-image:url('${image}')`}></div>
+  <div class="page-hero__veil"></div>
+  <div class="container page-hero__content">
+    <div class="page-hero__copy">
+      <h1>{title}</h1>
+      {subtitle && <p>{subtitle}</p>}
+    </div>
+  </div>
+</section>

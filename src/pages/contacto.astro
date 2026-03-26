@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
 ---
 
 <BaseLayout
@@ -7,46 +9,209 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Contáctanos para recibir informes de admisión y atención institucional del Colegio Roger Bacon."
   path="/contacto"
 >
-  <section class="page-hero">
+  <PageHero title="Tu Camino Al Éxito Comienza Aquí" image="/images/original/contact-hero.jpg" />
+
+  <section class="contact-shell">
     <div class="container">
-      <h1>Tu camino al éxito comienza aquí</h1>
-      <p>Contáctanos para resolver tus dudas sobre admisión, oferta académica y vida escolar.</p>
-    </div>
-  </section>
+      <div class="contact-card">
+        <div class="contact-form-column">
+          <div class="contact-title">
+            <h2>ESCRÍBENOS</h2>
+          </div>
 
-  <section class="section">
-    <div class="container split">
-      <article>
-        <h2 class="section-title">Escríbenos</h2>
-        <p class="section-intro">
-          Puedes comunicarte con nosotros por teléfono o correo electrónico. Nuestro equipo te brindará
-          atención personalizada para el proceso de admisión.
-        </p>
-        <div class="contact-grid">
-          <div class="card">
-            <h3>Llámanos</h3>
-            <p><a href="tel:+522226043466">(+052) 2226 04 34 66</a></p>
-          </div>
-          <div class="card">
-            <h3>Correo</h3>
-            <p><a href="mailto:contacto@colegio-rogerbacon.edu.mx">contacto@colegio-rogerbacon.edu.mx</a></p>
-          </div>
-          <div class="card">
-            <h3>Visítanos</h3>
-            <p>Av. 16 Ote. #233, Humboldt Norte C.P. 72570, Puebla, Pue. México</p>
-          </div>
+          <form class="contact-form">
+            <label>
+              <span>Tu nombre</span>
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+
+            <label>
+              <span>Tu correo electrónico</span>
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+
+            <label>
+              <span>Asunto</span>
+              <input type="text" name="subject" />
+            </label>
+
+            <label>
+              <span>Tu mensaje</span>
+              <textarea name="message" rows="7"></textarea>
+            </label>
+
+            <button type="submit">Enviar</button>
+          </form>
         </div>
-      </article>
 
-      <aside class="card">
-        <h2>Facebook institucional</h2>
-        <p>
-          Sigue nuestras actividades y avisos en
-          <a href="https://www.facebook.com/RogerBaconPuebla" target="_blank" rel="noopener noreferrer">
-            Roger Bacon Puebla
-          </a>.
-        </p>
-      </aside>
+        <aside class="contact-panel">
+          <div class="contact-panel__group">
+            <Icon name="phone" class="contact-panel__icon" />
+            <h3>LLÁMANOS</h3>
+            <a href="tel:+522226043466">(+052) 2226 04 34 66</a>
+          </div>
+
+          <div class="contact-panel__group">
+            <Icon name="home" class="contact-panel__icon" />
+            <h3>VISÍTANOS:</h3>
+            <p>Av. 16 Ote. #233, Humboldt Norte C.P. 72570 Puebla, Pue. México</p>
+          </div>
+        </aside>
+      </div>
+
+      <a
+        class="contact-map"
+        href="https://maps.google.com/?q=Av.%2016%20Ote.%20233%2C%20Humboldt%20Norte%2C%20Puebla%2C%20Pue.%20M%C3%A9xico"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="/images/original/contact-map.png" alt="Ubicación del Colegio Roger Bacon en el mapa" loading="lazy" decoding="async" />
+      </a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .contact-shell {
+    padding-bottom: 2.4rem;
+    background: linear-gradient(180deg, #fbfbfb, #ffffff 62%);
+  }
+
+  .contact-card {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.58fr);
+    margin-top: -58px;
+    background: #ffffff;
+    box-shadow: 0 28px 44px rgba(12, 20, 27, 0.08);
+  }
+
+  .contact-form-column {
+    padding: 1.8rem 1.6rem 2rem;
+  }
+
+  .contact-title h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .contact-title h2::after {
+    content: '';
+    display: block;
+    width: 74px;
+    height: 3px;
+    margin-top: 1rem;
+    background: var(--color-gold);
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1.4rem;
+  }
+
+  .contact-form label {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .contact-form span {
+    color: #555b65;
+    font-size: 0.88rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    border: 1px solid #e5e7ea;
+    background: #ffffff;
+    padding: 0.7rem 0.8rem;
+    color: #1f252d;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    width: fit-content;
+    border: 0;
+    background: #1f2328;
+    color: #ffffff;
+    padding: 0.45rem 0.85rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .contact-panel {
+    display: grid;
+    align-content: center;
+    gap: 2.2rem;
+    padding: 2rem 2.2rem;
+    background: var(--color-blue-deep);
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .contact-panel__group {
+    display: grid;
+    justify-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-panel__icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-panel h3 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-panel a,
+  .contact-panel p {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(1.05rem, 2vw, 1.32rem);
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .contact-panel p {
+    max-width: 17ch;
+    font-size: 1.02rem;
+  }
+
+  .contact-map {
+    display: block;
+    background: #ffffff;
+  }
+
+  .contact-map img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 900px) {
+    .contact-card {
+      grid-template-columns: 1fr;
+      margin-top: -34px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-form-column,
+    .contact-panel {
+      padding: 1.35rem 1.15rem 1.5rem;
+    }
+
+  }
+</style>
