@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Estudiantes | Colegio Roger Bacon"
+  description="Información institucional para estudiantes del Colegio Roger Bacon: lineamientos, acompañamiento y recursos académicos."
+  path="/estudiantes"
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Estudiantes</h1>
+      <p>Espacio institucional para fortalecer el desempeño académico, la disciplina y la vida escolar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Vida académica y acompañamiento</h2>
+      <p class="section-intro">
+        Impulsamos una comunidad estudiantil responsable, con enfoque en hábitos de estudio,
+        participación activa y formación integral para la etapa universitaria.
+      </p>
+
+      <div class="card-grid" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+        <article class="card">
+          <h3>Reglamento escolar</h3>
+          <p>Lineamientos claros para una convivencia respetuosa y un entorno académico ordenado.</p>
+        </article>
+        <article class="card">
+          <h3>Desarrollo académico</h3>
+          <p>Seguimiento del progreso para fortalecer habilidades analíticas, científicas y tecnológicas.</p>
+        </article>
+        <article class="card">
+          <h3>Identidad institucional</h3>
+          <p>Promovemos liderazgo, responsabilidad social y compromiso con la comunidad.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

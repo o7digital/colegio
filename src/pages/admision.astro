@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Admisión | Colegio Roger Bacon"
+  description="Proceso de admisión, beneficios académicos y requisitos para ingresar al Colegio Roger Bacon."
+  path="/admision"
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Proceso de Admisión</h1>
+      <p>Formamos líderes con valores universales y pensamiento crítico, autónomo y reflexivo.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <article>
+        <h2 class="section-title">¿Por qué estudiar en el Colegio Roger Bacon?</h2>
+        <ul class="list-clean">
+          <li>Nuestra planta académica está certificada por Google y Microsoft.</li>
+          <li>El 80% de nuestros catedráticos cuenta con estudios de posgrado.</li>
+          <li>Contamos con programas de intercambio estudiantil.</li>
+          <li>Modelo educativo basado en investigación, liderazgo y uso de la tecnología.</li>
+          <li>Sólida preparación para el ingreso a la universidad.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Requisitos de admisión</h2>
+        <ol class="list-clean">
+          <li>Certificado de secundaria.</li>
+          <li>Carta de buena conducta emitida por la autoridad de tu secundaria.</li>
+          <li>Acta de nacimiento y CURP en formato nuevo.</li>
+          <li>Comprobante de domicilio, NIA y certificado médico de institución pública.</li>
+          <li>10 fotografías tamaño infantil y cédula de registro firmada.</li>
+          <li>Para segundo o tercer año: kardex y certificado parcial de bachillerato.</li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

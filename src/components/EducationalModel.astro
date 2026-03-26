@@ -1,0 +1,41 @@
+<section class="section" aria-labelledby="modelo-educativo-title">
+  <div class="container">
+    <h2 id="modelo-educativo-title" class="section-title">Modelo Educativo</h2>
+    <p class="section-intro">
+      Nuestro modelo educativo está basado en tres pilares necesarios para una educación de calidad,
+      orientada al presente y al futuro de cada estudiante.
+    </p>
+
+    <div class="card-grid model-grid">
+      <article class="card">
+        <span class="badge-icon" aria-hidden="true">🔎</span>
+        <h3>Investigación</h3>
+        <p>Desarrollamos habilidades científicas y analíticas para comprender y transformar el entorno.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge-icon" aria-hidden="true">🏛️</span>
+        <h3>Liderazgo</h3>
+        <p>Formamos líderes sociales capaces de tomar decisiones responsables y propositivas.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge-icon" aria-hidden="true">💻</span>
+        <h3>Uso de la tecnología</h3>
+        <p>Integramos tecnología de punta como herramienta para el aprendizaje y la innovación.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .model-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: 980px) {
+    .model-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

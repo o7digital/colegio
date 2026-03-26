@@ -1,0 +1,59 @@
+<section class="section" aria-labelledby="filosofia-title">
+  <div class="container">
+    <h2 id="filosofia-title" class="section-title">Filosofía Institucional</h2>
+
+    <div class="card-grid philosophy-grid">
+      <article class="card">
+        <h3>Propósito</h3>
+        <p>
+          Formar estudiantes de excelencia capaces de insertarse en el ámbito público y privado,
+          como agentes de cambio con herramientas tecnológicas, programas de vanguardia,
+          vinculación social y compromiso con el medio ambiente.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Misión</h3>
+        <p>
+          Formar líderes sociales con valores universales, pensamiento crítico, autónomo y reflexivo,
+          que ejerzan su libertad responsable en beneficio propio y de los demás.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Visión</h3>
+        <p>
+          Consolidarnos como una institución educativa líder y vanguardista en la preparación de
+          estudiantes de excelencia, mediante conocimiento, capacitación y manejo de tecnología de punta.
+        </p>
+      </article>
+    </div>
+
+    <article class="card values-card">
+      <h3>Nuestros valores</h3>
+      <ul class="list-clean">
+        <li>Búsqueda constante de la verdad mediante pensamiento crítico y reflexivo.</li>
+        <li>Apropiación del pensamiento socialmente responsable.</li>
+        <li>Divulgación de la cultura para la paz y la sostenibilidad del mundo.</li>
+        <li>Respeto y tolerancia a la diversidad cultural.</li>
+        <li>Inclusión social, amor a la patria, justicia, fraternidad e integridad familiar.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<style>
+  .philosophy-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .values-card {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 980px) {
+    .philosophy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroAdmission from '../components/HeroAdmission.astro';
+import FeatureCards from '../components/FeatureCards.astro';
+import EducationalModel from '../components/EducationalModel.astro';
+import InstitutionalPhilosophy from '../components/InstitutionalPhilosophy.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Colegio Roger Bacon | Proceso de Admisión"
+  description="Educación de calidad a tu alcance. Conoce el proceso de admisión, modelo educativo y filosofía institucional del Colegio Roger Bacon."
+  path="/"
+>
+  <HeroAdmission />
+
+  <FeatureCards />
+
+  <section class="section" aria-labelledby="frase-institucional-title">
+    <div class="container">
+      <h2 id="frase-institucional-title" class="section-title">Compromiso institucional</h2>
+      <blockquote class="quote">
+        “Valoramos la educación de calidad, con principios y valores que le permiten al joven,
+        incidir en su entorno de manera proactiva y con un liderazgo definido”.
+      </blockquote>
+    </div>
+  </section>
+
+  <EducationalModel />
+
+  <InstitutionalPhilosophy />
+
+  <CTASection />
+</BaseLayout>
