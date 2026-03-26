@@ -17,12 +17,22 @@ import CTASection from '../components/CTASection.astro';
   <FeatureCards />
 
   <section class="section" aria-labelledby="frase-institucional-title">
-    <div class="container">
-      <h2 id="frase-institucional-title" class="section-title">Compromiso institucional</h2>
-      <blockquote class="quote">
-        “Valoramos la educación de calidad, con principios y valores que le permiten al joven,
-        incidir en su entorno de manera proactiva y con un liderazgo definido”.
-      </blockquote>
+    <div class="container quote-composition">
+      <figure class="image-panel">
+        <img src="/images/institucional-1.jpg" alt="Estudiantes en entorno académico" loading="lazy" decoding="async" />
+      </figure>
+
+      <div>
+        <h2 id="frase-institucional-title" class="section-title">Compromiso institucional</h2>
+        <blockquote class="quote">
+          “Valoramos la educación de calidad, con principios y valores que le permiten al joven,
+          incidir en su entorno de manera proactiva y con un liderazgo definido”.
+        </blockquote>
+      </div>
+
+      <figure class="image-panel image-panel-secondary">
+        <img src="/images/institucional-2.jpg" alt="Formación integral y liderazgo estudiantil" loading="lazy" decoding="async" />
+      </figure>
     </div>
   </section>
 
@@ -32,3 +42,42 @@ import CTASection from '../components/CTASection.astro';
 
   <CTASection />
 </BaseLayout>
+
+<style>
+  .quote-composition {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 0.8fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .image-panel {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    aspect-ratio: 4 / 5;
+  }
+
+  .image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-panel-secondary {
+    aspect-ratio: 4 / 4.6;
+  }
+
+  @media (max-width: 980px) {
+    .quote-composition {
+      grid-template-columns: 1fr;
+    }
+
+    .image-panel,
+    .image-panel-secondary {
+      aspect-ratio: 16 / 8;
+    }
+  }
+</style>

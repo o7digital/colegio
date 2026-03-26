@@ -1,40 +1,75 @@
-<section class="hero-admission section">
-  <div class="container split">
-    <div>
-      <p class="eyebrow">Inscripciones abiertas</p>
-      <h1>Proceso de Admisión</h1>
-      <p>
-        Educación de Calidad a tu Alcance. Formamos líderes con valores universales y pensamiento crítico,
-        autónomo y reflexivo.
-      </p>
-      <div class="actions">
-        <a href="/admision" class="btn btn-primary">Inscríbete</a>
-        <a href="/contacto" class="btn btn-ghost">Solicitar informes</a>
-      </div>
-    </div>
+<section class="hero-admission" aria-label="Proceso de admisión">
+  <div class="hero-media" aria-hidden="true">
+    <img src="/images/hero-colegio.jpg" alt="" loading="eager" decoding="async" />
+  </div>
 
-    <aside class="hero-panel" aria-label="Resumen institucional">
-      <h2>Admisión 2026</h2>
-      <ul>
-        <li>Certificaciones académicas con enfoque digital.</li>
-        <li>Acompañamiento cercano para estudiantes y familias.</li>
-        <li>Preparación sólida para el ingreso universitario.</li>
-      </ul>
-    </aside>
+  <div class="hero-overlay">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Inscripciones abiertas</p>
+        <h1>Proceso de Admisión</h1>
+        <p>
+          Educación de Calidad a tu Alcance. Formamos líderes con valores universales y pensamiento crítico,
+          autónomo y reflexivo.
+        </p>
+        <div class="actions">
+          <a href="/admision" class="btn btn-primary">Inscríbete</a>
+          <a href="/contacto" class="btn btn-ghost">Contáctanos</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Resumen institucional">
+        <h2>Admisión 2026</h2>
+        <ul>
+          <li>Académicos certificados por Google y Microsoft.</li>
+          <li>Catedráticos con estudios de posgrado.</li>
+          <li>Intercambio estudiantil y preparación universitaria sólida.</li>
+        </ul>
+      </aside>
+    </div>
   </div>
 </section>
 
 <style>
   .hero-admission {
-    background: radial-gradient(circle at 80% 10%, #d7e8ff 0%, #edf4ff 26%, #ffffff 56%);
+    position: relative;
+    min-height: clamp(520px, 72vh, 760px);
     border-bottom: 1px solid var(--color-border);
+    color: #fff;
+  }
+
+  .hero-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(95deg, rgba(11, 29, 55, 0.9) 0%, rgba(16, 42, 76, 0.75) 42%, rgba(16, 42, 76, 0.32) 100%),
+      linear-gradient(180deg, rgba(11, 29, 55, 0.35), rgba(11, 29, 55, 0.55));
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(4rem, 12vw, 7.5rem);
   }
 
   .eyebrow {
     display: inline-block;
     margin: 0 0 0.7rem;
-    background: #e2efff;
-    color: var(--color-navy-900);
+    background: rgba(220, 236, 255, 0.22);
+    color: #f4f8ff;
+    border: 1px solid rgba(230, 240, 255, 0.4);
     border-radius: 999px;
     font-size: 0.85rem;
     font-weight: 650;
@@ -44,14 +79,16 @@
   h1 {
     margin: 0;
     line-height: 1.1;
-    color: var(--color-navy-900);
+    color: #ffffff;
     font-size: clamp(2.2rem, 5.2vw, 4rem);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
   p {
     margin: 1rem 0 0;
     max-width: 60ch;
-    color: var(--color-muted);
+    color: #dbe8fa;
     font-size: clamp(1.02rem, 2vw, 1.2rem);
   }
 
@@ -63,10 +100,10 @@
   }
 
   .hero-panel {
-    background: #fff;
-    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(214, 221, 233, 0.9);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 18px 34px rgba(6, 16, 31, 0.28);
     padding: clamp(1.4rem, 3vw, 2rem);
   }
 
@@ -84,5 +121,15 @@
 
   .hero-panel li + li {
     margin-top: 0.55rem;
+  }
+
+  @media (max-width: 980px) {
+    .hero-admission {
+      min-height: auto;
+    }
+
+    .hero-overlay {
+      padding-block: 3.2rem;
+    }
   }
 </style>
